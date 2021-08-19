@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'CarController@index')->name('cars');
+Route::get('/', 'App\Http\Controllers\CarController@index')->name('cars');
+
+Route::get('/searchByCar/{id}', 'App\Http\Controllers\CarController@searchProduct');
 
 
 

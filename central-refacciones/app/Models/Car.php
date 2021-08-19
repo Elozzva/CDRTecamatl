@@ -25,4 +25,33 @@ class Car extends Model
     {
         return $this->belongsTo(Shipowner::class, 'Shipowner_id')->orderBy("name");
     }
+
+    //scope
+    public function scopeName($query, $name)
+    {
+        if ($name) {
+            return $query->where('name', 'LIKE', "%$name%");
+        }
+    }
+    public function scopeModel($query, $model)
+    {
+        if ($model) {
+            return $query->where('model', 'LIKE', "%$model%");
+        }
+    }
+    /* public function scopeShipowner($query, $nameShip)
+    {
+        $nameowner = Shipowner::where('name', 'LIKE', "%$nameShip%");
+        if ($nameowner) {
+            return $query->$nameowner;
+        }
+    }
+    public function scopeProd($query, $producto)
+    {
+        $description = Product::where('description', 'LIKE', "%$producto%");
+        if ($description) {
+            return $query->$description;
+        }
+    } */
 }
+

@@ -15,27 +15,49 @@
             <div class="col-md-12">
                 <div class="page-header">
                     <h1>
-                        Busqueda de preoductos
-                        {{ Form::open(['route' => 'cars', 'method' => 'get', 'class' => 'form-inlane pull-right'])}}
+                        Busqueda de Autos
+                        {{ Form::open(['route' => 'cars', 'method' => 'get', 'class' => 'form-inline pull-right', ]) }}
                             <div class="form-group">
-                                {{ Form::text('name', null, ['class' => 'form-cpntrol', 'placeholder' => 'Auto'])}}
+                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Auto']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::text('model', null, ['class' => 'form-cpntrol', 'placeholder' => 'Modelo'])}}
+                                {{ Form::text('model', null, ['class' => 'form-control', 'placeholder' => 'Modelo']) }}
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-search">
-
-                                    </span>
+                                    <span class="glyphicon glyphicon-search"></span>
                                 </button>
                             </div>
                         {{ Form::close()}}
                     </h1>
                 </div>
+                <div class = "col-md-8">
+                    <table class = "table table-hover table-striped">
+                        <tbody>
+                            @foreach ($cars as $car)
+
+                            <tr onclick="searchProduct()">
+
+                                <td id="CarYear" value="{{ $car['id'] }}">{{ $car->name }}</td>
+                                <td value="{{ $car['id'] }}">{{ $car->model }}</td>
+
+                            </tr>
+
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{ $cars->links() }}
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        function searchProduct() {
+            var x = document.getElementById('CarYear').value;
+            alert(x);
+            window.open("/searchByCar/" + x, "_self");
+        }
+    </script>
 
 </body>
 </html>
