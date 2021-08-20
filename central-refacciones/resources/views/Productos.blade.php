@@ -36,10 +36,10 @@
                         <tbody>
                             @foreach ($cars as $car)
 
-                            <tr onclick="searchProduct()">
+                            <tr onclick="searchProduct({{ $car['id'] }})">
 
-                                <td id="CarYear" value="{{ $car['id'] }}">{{ $car->name }}</td>
-                                <td value="{{ $car['id'] }}">{{ $car->model }}</td>
+                                <td>{{ $car->name }}</td>
+                                <td>{{ $car->model }}</td>
 
                             </tr>
 
@@ -52,10 +52,10 @@
         </div>
     </div>
     <script>
-        function searchProduct() {
-            var x = document.getElementById('CarYear').value;
-            alert(x);
-            window.open("/searchByCar/" + x, "_self");
+        function searchProduct(id) {
+
+            alert(id);
+            window.open("/searchByCar/" + id, "_self");
         }
     </script>
 

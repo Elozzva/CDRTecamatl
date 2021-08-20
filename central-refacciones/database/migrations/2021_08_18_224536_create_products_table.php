@@ -24,8 +24,8 @@ class CreateProductsTable extends Migration
             $table->string('alternate');
             $table->unsignedBigInteger('Line_id');
             $table->foreign('Line_id')->references('id')->on('lines');
-            $table->unsignedBigInteger('Trademarks__id');
-            $table->foreign('Trademarks__id')->references('id')->on('trademarks');
+            $table->unsignedBigInteger('Trademark_id');
+            $table->foreign('Trademark_id')->references('id')->on('trademarks');
             $table->unsignedBigInteger('Element_type_id');
             $table->foreign('Element_type_id')->references('id')->on('element_types');
             $table->timestamps();

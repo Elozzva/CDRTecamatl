@@ -28,9 +28,9 @@ class CarController extends Controller
     }
     public function searchProduct($id)
     {
-        dd($id);
+
         $car=Car::find($id);
+        //dd($car);
          return view('Search.searchByCar', ['Productos'=>$car->products, 'Carro'=>$car]);
-        //dd('Productos');
     }
 }

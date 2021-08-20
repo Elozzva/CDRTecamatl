@@ -17,7 +17,7 @@
         <ul>
             <li>
                 <a href="/">INICIO</a></li>
-            /*<li><a href="/searchByYears">ATRAS</a>*/
+
             </li>
         </ul>
     </nav>
@@ -38,7 +38,8 @@
                     @forelse ($Productos as $Producto )
                     <tr>
                         <th scope="row">{{ $Producto->key_prod }}</th>
-                        <td>{{ $Producto->mark->name }}</td>
+                        <td>{{ $Producto->trademark->name }}</td>
+
                         <td>{{ $Producto->name }}</td>
                         <td>{{ $Producto->description }}</td>
                         <td>{{ $Producto->equivalence }}</td>
